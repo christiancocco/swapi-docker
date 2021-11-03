@@ -29,8 +29,8 @@ docker-compose up -d --build
 ## Usage
 Following the link to access to the application and phpMyAdmin to see the data
 
-- http://<nome host>:8089 : To access phpMyAdmin
-- http://<nome host>:2520 : To access the application
+- http://"hostname":8089 : To access phpMyAdmin
+- http://"hostname":2520 : To access the application
 
 ## License
 [MIT](https://choosealicense.com/licenses/mit/)
