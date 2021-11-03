@@ -128,12 +128,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/christiancocco/swapi.git",
-                "reference": "4476e6316b382750c25c6128fd3cdb224f537a02"
+                "reference": "3f79ec1a38c8fc94c46afc756dd374a857090066"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/christiancocco/swapi/zipball/4476e6316b382750c25c6128fd3cdb224f537a02",
-                "reference": "4476e6316b382750c25c6128fd3cdb224f537a02",
+                "url": "https://api.github.com/repos/christiancocco/swapi/zipball/3f79ec1a38c8fc94c46afc756dd374a857090066",
+                "reference": "3f79ec1a38c8fc94c46afc756dd374a857090066",
                 "shasum": ""
             },
             "require": {
@@ -176,7 +176,7 @@
                 "issues": "https://github.com/christiancocco/swapi/issues",
                 "source": "https://github.com/christiancocco/swapi/tree/main"
             },
-            "time": "2021-11-03T10:42:52+00:00"
+            "time": "2021-11-03T15:36:08+00:00"
         },
         {
             "name": "dflydev/dot-access-data",
@@ -8083,5 +8083,5 @@
         "php": "^7.3|^8.0"
     },
     "platform-dev": [],
-    "plugin-api-version": "2.1.0"
+    "plugin-api-version": "2.0.0"
 }

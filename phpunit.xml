@@ -11,8 +11,11 @@
         <testsuite name="Feature">
             <directory suffix="Test.php">./tests/Feature</directory>
         </testsuite>
-        <testsuite name="Swapi">
-            <directory suffix="Test.php">./vendor/christiancocco/swapi/tests</directory>
+        <testsuite name="SwapiUnit">
+            <directory suffix="Test.php">./vendor/christiancocco/swapi/tests/Unit</directory>
+        </testsuite>
+        <testsuite name="SwapiTest">
+            <directory suffix="Test.php">./vendor/christiancocco/swapi/tests/Feature</directory>
         </testsuite>
     </testsuites>
     <coverage processUncoveredFiles="true">
