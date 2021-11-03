@@ -1,0 +1,58 @@
+version: '3.8'
+
+services:
+  db:
+    build:
+      context: ./docker/database
+    container_name: swapi_db
+    command: >
+      bash -c "chmod 644 /etc/mysql/conf.d/*.cnf && /entrypoint.sh mysqld"
+    volumes:
+      - ./docker/database/config:/etc/mysql/conf.d/
+      - mysql-data:/var/data
+    environment:
+      MYSQL_ROOT_PASSWORD: root
+      MYSQL_DATABASE: swapi
+    ports:
+      - "3307:3306"
+    restart: always
+    networks:
+      - swapi
+    image: christiancocco/swapi-db
+  swapi:
+    build:
+      context: ./docker/apache
+    container_name: swapi_app
+    depends_on:
+      - db
+    volumes:
+      - .:/var/www/html/swapi-docker/
+    command: >
+      bash -c "composer install && composer require christiancocco/swapi --with-all-dependencies && php artisan swapi:install --no-interaction && php artisan swapi:init  && sh /var/www/html/swapi-docker/docker/apache/start_server.sh"
+    ports:
+      - 2520:8050
+    restart: always
+    networks:
+      - swapi
+    image: christiancocco/swapi-docker
+
+  phpmyadmin:
+    depends_on:
+      - db
+    image: phpmyadmin/phpmyadmin
+    container_name: swapi_phpmyadmin
+    links:
+      - db
+    restart: always
+    ports:
+      - 8089:80
+    environment:
+      PMA_HOST: swapi_db
+      MYSQL_ROOT_PASSWORD: root
+    networks:
+      - swapi
+
+networks:
+  swapi:
+volumes:
+  mysql-data:
